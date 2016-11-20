@@ -13,6 +13,14 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TelegramBotPlatform.TestCon
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TelegramBotPlatform.Core.Constants", "Core\TelegramBotPlatform.Core.Constants\TelegramBotPlatform.Core.Constants.csproj", "{352F31EB-F884-4B1A-B784-CA93927CB9E7}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Bots", "Bots", "{D1376112-B9AD-47E1-842E-3ED3CCAE1EEA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TelegramBotPlatform.Bots.SearchBot", "Bots\TelegramBotPlatform.Bots.SearchBot\TelegramBotPlatform.Bots.SearchBot.csproj", "{374DB0B4-4241-4817-82FD-D34A0CCF83CF}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Test", "Test", "{A38D05CC-A464-4BD6-A7AF-E65A2DED9FEF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TelegramBotPlatform.Test.WpfTestUtility", "Test\TelegramBotPlatform.Test.WpfTestUtility\TelegramBotPlatform.Test.WpfTestUtility.csproj", "{CE18B40E-4641-4F96-9CB1-9BDB1D6F689C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -35,6 +43,14 @@ Global
 		{352F31EB-F884-4B1A-B784-CA93927CB9E7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{352F31EB-F884-4B1A-B784-CA93927CB9E7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{352F31EB-F884-4B1A-B784-CA93927CB9E7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{374DB0B4-4241-4817-82FD-D34A0CCF83CF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{374DB0B4-4241-4817-82FD-D34A0CCF83CF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{374DB0B4-4241-4817-82FD-D34A0CCF83CF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{374DB0B4-4241-4817-82FD-D34A0CCF83CF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CE18B40E-4641-4F96-9CB1-9BDB1D6F689C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CE18B40E-4641-4F96-9CB1-9BDB1D6F689C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CE18B40E-4641-4F96-9CB1-9BDB1D6F689C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CE18B40E-4641-4F96-9CB1-9BDB1D6F689C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -42,5 +58,7 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{2B394AE1-7CFE-486D-9FEA-583E394F254B} = {311CC5E8-8522-4C2E-B35D-F0EA53BAC401}
 		{352F31EB-F884-4B1A-B784-CA93927CB9E7} = {311CC5E8-8522-4C2E-B35D-F0EA53BAC401}
+		{374DB0B4-4241-4817-82FD-D34A0CCF83CF} = {D1376112-B9AD-47E1-842E-3ED3CCAE1EEA}
+		{CE18B40E-4641-4F96-9CB1-9BDB1D6F689C} = {A38D05CC-A464-4BD6-A7AF-E65A2DED9FEF}
 	EndGlobalSection
 EndGlobal

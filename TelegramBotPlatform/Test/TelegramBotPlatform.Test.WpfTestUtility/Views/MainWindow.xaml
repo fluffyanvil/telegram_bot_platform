@@ -1,0 +1,43 @@
+﻿<Window x:Class="TelegramBotPlatform.Test.WpfTestUtility.Views.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TelegramBotPlatform.Test.WpfTestUtility"
+        xmlns:viewModels="clr-namespace:TelegramBotPlatform.Test.WpfTestUtility.ViewModels"
+        xmlns:htmlAgilityPack="clr-namespace:HtmlAgilityPack;assembly=HtmlAgilityPack"
+        xmlns:behaviors="clr-namespace:TelegramBotPlatform.Test.WpfTestUtility.Behaviors"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="350" Width="525" d:DataContext="{d:DesignInstance viewModels:MainWindowViewModel}">
+    <Window.DataContext>
+        <viewModels:MainWindowViewModel></viewModels:MainWindowViewModel>
+    </Window.DataContext>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Row="0">
+            <TextBox Text="{Binding QueryString, Mode=TwoWay}" HorizontalAlignment="Stretch"></TextBox>
+            <Button HorizontalAlignment="Right" Width="50" Command="{Binding SearchCommand}">Search!</Button>
+        </StackPanel>
+        <ListView Grid.Row="1" ItemsSource="{Binding Metas}">
+            <ListView.ItemTemplate>
+                <DataTemplate DataType="{x:Type viewModels:Meta}">
+                    <!--<WebBrowser behaviors:WebBrowserBehavior.Html="{Binding}" Language="ru-RU" HorizontalAlignment="Stretch"></WebBrowser>-->
+                    <StackPanel>
+                        <TextBlock Text="{Binding Title}"></TextBlock>
+                        <TextBlock Text="{Binding Description}"></TextBlock>
+                        <ItemsControl ItemsSource="{Binding Images}">
+                            <ItemsControl.ItemTemplate>
+                                <DataTemplate>
+                                    <Image Source="{Binding}"></Image>
+                                </DataTemplate>
+                            </ItemsControl.ItemTemplate>
+                        </ItemsControl>
+                    </StackPanel>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </Grid>
+</Window>
