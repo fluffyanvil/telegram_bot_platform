@@ -1,0 +1,204 @@
+﻿{
+    "_type": "SearchResponse",
+    "instrumentation": {
+        "pingUrlBase": "https://www.bingapis.com/api/ping?IG=E86668D804C149438DFC0972CE52C9E3&CID=070910FF0C0362112C11188E0DD06323&ID=",
+        "pageLoadPingUrl": "https://www.bingapis.com/api/ping/pageload"
+    },
+    "webPages": {
+        "webSearchUrl": "https://www.bing.com/search?q=bill+gates",
+        "webSearchUrlPingSuffix": "DevEx,5425.1",
+        "totalEstimatedMatches": 14100000,
+        "value": [
+            {
+                "id": "https://www.bing.com/api/v5/#WebPages.0",
+                "name": "Bill & Melinda Gates Foundation - Official Site",
+                "url": "http://www.gatesfoundation.org/",
+                "urlPingSuffix": "DevEx,5081.1",
+                "about": [
+                    {
+                        "name": "Bill & Melinda Gates Foundation"
+                    },
+                    {
+                        "name": "Bill Gates"
+                    }
+                ],
+                "displayUrl": "www.gatesfoundation.org",
+                "snippet": "The Gates Foundation’s effort to eradicate polio offers the chance to protect millions of children from paralysis forever.",
+                "deepLinks": [
+                    {
+                        "name": "Jobs",
+                        "url": "http://www.gatesfoundation.org/jobs",
+                        "urlPingSuffix": "DevEx,5071.1"
+                    },
+                    {
+                        "name": "What We Do",
+                        "url": "http://www.gatesfoundation.org/what-we-do",
+                        "urlPingSuffix": "DevEx,5072.1"
+                    },
+                    {
+                        "name": "Apply for a Grant",
+                        "url": "http://www.gatesfoundation.org/how-we-work/resources/our-commitment-to-grantees",
+                        "urlPingSuffix": "DevEx,5073.1"
+                    },
+                    {
+                        "name": "Search Listings",
+                        "url": "http://careers.gatesfoundation.org/",
+                        "urlPingSuffix": "DevEx,5074.1"
+                    },
+                    {
+                        "name": "How We Work",
+                        "url": "http://www.gatesfoundation.org/how-we-work",
+                        "urlPingSuffix": "DevEx,5075.1"
+                    }
+                ],
+                "dateLastCrawled": "2016-02-04T17:10:00"
+            },
+            {
+                "id": "https://www.bing.com/api/v5/#WebPages.1",
+                "name": "Bill Gates - Wikipedia, the free encyclopedia",
+                "url": "https://en.wikipedia.org/wiki/Bill_Gates",
+                "urlPingSuffix": "DevEx,5097.1",
+                "about": [
+                    {
+                        "name": "Bill Gates"
+                    }
+                ],
+                "displayUrl": "https://en.wikipedia.org/wiki/Bill_Gates",
+                "snippet": "William Henry \"Bill\" Gates III (born October 28, 1955) is an American business magnate, philanthropist, investor, and computer programmer. [2] [3] In 1975 ...",
+                "dateLastCrawled": "2016-02-05T03:09:00"
+            },
+            {
+                "id": "https://www.bing.com/api/v5/#WebPages.2",
+                "name": "Bill Gates - Official Site",
+                "url": "https://www.gatesnotes.com/",
+                "urlPingSuffix": "DevEx,5110.1",
+                "displayUrl": "https://www.gatesnotes.com",
+                "snippet": "Become a Gates Notes Insider Join the Gates Notes community to access exclusive content, comment on stories, subscribe to your favorite topics and more.",
+                "dateLastCrawled": "2016-02-03T18:50:00"
+            }
+        ]
+    },
+    "images": {
+        "id": "https://www.bing.com/api/v5/#Images",
+        "readLink": "https://www.bing.com/api/v5/images/search?q=bill+gates&qpvt=bill+gates&qpvt=bill+gates",
+        "webSearchUrl": "https://www.bing.com/images/search?q=bill+gates&qpvt=bill+gates&qpvt=bill+gates",
+        "webSearchUrlPingSuffix": "DevEx,5025.1",
+        "isFamilyFriendly": true,
+        "value": [
+            {
+                "name": "Bill Gates Ranked Richest American by Forbes For 21st Straight Year",
+                "webSearchUrl": "https://www.bing.com/images/search?q=bill+gates&id=A204A8572C1640DE6830782F02A63C2E825D705A&FORM=IARRTH",
+                "webSearchUrlPingSuffix": "DevEx,5321.1",
+                "thumbnailUrl": "https://tse1.mm.bing.net/th?id=OIP.Me12187d95b2790e2644fdf18d5a30b3bH1&pid=Api",
+                "datePublished": "2014-09-29T21:50:00",
+                "contentUrl": "http://americanlivewire.com/wp-content/uploads/bill-gates1.jpg",
+                "hostPageUrl": "http://americanlivewire.com/2014-09-29-bill-gates-ranked-richest-american-forbes-21st-straight-year/",
+                "hostPageUrlPingSuffix": "DevEx,5445.1",
+                "contentSize": "1088572 B",
+                "encodingFormat": "jpeg",
+                "hostPageDisplayUrl": "http://americanlivewire.com/2014-09-29-bill-gates-ranked-richest-american-forbes-21st-straight-year/",
+                "width": 1588,
+                "height": 2393,
+                "thumbnail": {
+                    "width": 318,
+                    "height": 480
+                }
+            }
+        ],
+        "displayShoppingSourcesBadges": false,
+        "displayRecipeSourcesBadges": true
+    },
+    "news": {
+        "id": "https://www.bing.com/api/v5/#News",
+        "readLink": "https://www.bing.com/api/v5/news/search?q=Bill+Gates",
+        "value": [
+            {
+                "name": "Bill Gates Doubles Down to Scale up Support for New Impact Investing Funds",
+                "url": "http://www.huffingtonpost.com/david-bank/bill-gates-doubles-down-t_b_9146778.html",
+                "urlPingSuffix": "DevEx,5175.1",
+                "image": {
+                    "thumbnail": {
+                        "contentUrl": "https://www.bing.com/th?id=ON.94FE743052139FA7E51134C65616EDD4&pid=News",
+                        "width": 570,
+                        "height": 370
+                    }
+                },
+                "description": "ImpactAlpha.com-- When Bill Gates agreed a couple years ago to put a small piece of his personal fortune into a fund that invests in companies serving low-income customers in India, he invited the fund managers to return with a plan to scale up their ...",
+                "about": [
+                    {
+                        "readLink": "https://www.bing.com/api/v5/entities/0d47c987-0042-5576-15e8-97af601614fa",
+                        "name": "Bill Gates"
+                    },
+                    {
+                        "readLink": "https://www.bing.com/api/v5/entities/b7fff496-7062-698c-2493-fa6871cd8c66",
+                        "name": "Impact investing"
+                    }
+                ],
+                "provider": [
+                    {
+                        "_type": "Organization",
+                        "name": "The Huffington Post"
+                    }
+                ],
+                "datePublished": "2016-02-04T22:56:00",
+                "category": "Business"
+            }
+        ]
+    },
+    "relatedSearches": {
+        "id": "https://www.bing.com/api/v5/#RelatedSearches",
+        "value": [
+            {
+                "text": "Bill Gates Malaria",
+                "displayText": "Bill Gates Malaria",
+                "webSearchUrl": "https://www.bing.com/search?q=Bill+Gates+Malaria",
+                "webSearchUrlPingSuffix": "DevEx,5465.1"
+            },
+            {
+                "text": "Bill Gates Mansion",
+                "displayText": "Bill Gates Mansion",
+                "webSearchUrl": "https://www.bing.com/search?q=Bill+Gates+Mansion",
+                "webSearchUrlPingSuffix": "DevEx,5466.1"
+            }
+        ]
+    },
+    "videos": {
+        "id": "https://www.bing.com/api/v5/#Videos",
+        "readLink": "https://www.bing.com/api/v5/videos/search?q=bill+gates",
+        "webSearchUrl": "https://www.bing.com/videos/search?q=bill+gates",
+        "webSearchUrlPingSuffix": "DevEx,5053.1",
+        "isFamilyFriendly": true,
+        "value": [
+            {
+                "name": "Bill Gates 2.0",
+                "description": "For Bill Gates, technology is still the solution. He shows Charlie Rose some inventions he's working on to help heal the world.",
+                "webSearchUrl": "https://www.bing.com/videos/search?q=bill%20gates#view=detail&mid=234E4D8C9DC6C5707C0E234E4D8C9DC6C5707C0E",
+                "webSearchUrlPingSuffix": "DevEx,5430.1",
+                "thumbnailUrl": "https://tse2.mm.bing.net/th?id=WN.qLvK%2bJin%2b21addnQ0lsxUw&pid=Api",
+                "datePublished": "2013-05-14T18:35:52",
+                "publisher": [
+                    {
+                        "name": "YouTube"
+                    }
+                ],
+                "contentUrl": "https://www.youtube.com/watch?v=cPy0nWYYCFg",
+                "hostPageUrl": "https://www.youtube.com/watch?v=cPy0nWYYCFg",
+                "hostPageUrlPingSuffix": "DevEx,5429.1",
+                "encodingFormat": "mp4",
+                "hostPageDisplayUrl": "https://www.youtube.com/watch?v=cPy0nWYYCFg",
+                "width": 1280,
+                "height": 720,
+                "duration": "PT13M42S",
+                "motionThumbnailUrl": "https://tse2.mm.bing.net/th?id=OM.DnxwxcadjE1OIw&pid=Api",
+                "embedHtml": "<iframe width=\"1280\" height=\"720\" src=\"http://www.youtube.com/embed/cPy0nWYYCFg?autoplay=1\" frameborder=\"0\" allowfullscreen></iframe>",
+                "allowHttpsEmbed": true,
+                "viewCount": 80292,
+                "thumbnail": {
+                    "width": 300,
+                    "height": 168
+                }
+            }
+        ],
+        "scenario": "List"
+    }
+}
