@@ -31,7 +31,9 @@ namespace TelegramBotPlatform.Bots.SearchBot
 			_bot.OnInlineQuery += BotOnOnInlineQuery;
 			_bot.OnInlineResultChosen += BotOnOnInlineResultChosen;
 			
-			Console.ReadLine();
+			var command = Console.ReadLine();
+		    _bot.SendTextMessageAsync("@gcardrobot", "kirill");
+		    Console.ReadLine();
 		}
 
 		private static void BotOnOnInlineResultChosen(object sender, ChosenInlineResultEventArgs chosenInlineResultEventArgs)

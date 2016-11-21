@@ -16,14 +16,34 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="50"></RowDefinition>
             <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
         </Grid.RowDefinitions>
         <StackPanel Grid.Row="0">
             <TextBox Text="{Binding QueryString, Mode=TwoWay}" HorizontalAlignment="Stretch"></TextBox>
             <Button HorizontalAlignment="Right" Width="50" Command="{Binding SearchCommand}">Search!</Button>
         </StackPanel>
-        <ListView Grid.Row="1" ItemsSource="{Binding Metas}">
+        <ListView Grid.Row="1" ItemsSource="{Binding SearchResults}">
             <ListView.ItemTemplate>
-                <DataTemplate DataType="{x:Type viewModels:Meta}">
+                <DataTemplate>
+                    <TextBlock Text="{Binding}"></TextBlock>
+                    <!--<WebBrowser behaviors:WebBrowserBehavior.Html="{Binding}" Language="ru-RU" HorizontalAlignment="Stretch"></WebBrowser>-->
+                    <!--<StackPanel>
+                        <TextBlock Text="{Binding Title}"></TextBlock>
+                        <TextBlock Text="{Binding Description}"></TextBlock>
+                        <ItemsControl ItemsSource="{Binding Images}">
+                            <ItemsControl.ItemTemplate>
+                                <DataTemplate>
+                                    <Image Source="{Binding}"></Image>
+                                </DataTemplate>
+                            </ItemsControl.ItemTemplate>
+                        </ItemsControl>
+                    </StackPanel>-->
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        <ListView Grid.Row="2" ItemsSource="{Binding Metas}">
+            <ListView.ItemTemplate>
+                <DataTemplate>
                     <!--<WebBrowser behaviors:WebBrowserBehavior.Html="{Binding}" Language="ru-RU" HorizontalAlignment="Stretch"></WebBrowser>-->
                     <StackPanel>
                         <TextBlock Text="{Binding Title}"></TextBlock>
@@ -31,7 +51,7 @@
                         <ItemsControl ItemsSource="{Binding Images}">
                             <ItemsControl.ItemTemplate>
                                 <DataTemplate>
-                                    <Image Source="{Binding}"></Image>
+                                    <Image Width="100" Height="100" Stretch="UniformToFill" Source="{Binding}"></Image>
                                 </DataTemplate>
                             </ItemsControl.ItemTemplate>
                         </ItemsControl>

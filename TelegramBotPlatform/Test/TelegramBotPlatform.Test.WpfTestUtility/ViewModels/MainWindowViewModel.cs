@@ -2,16 +2,13 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
-using System.Security.Policy;
-using System.Text;
+using System.Threading;
+using System.Threading.Tasks;
 using System.Windows.Input;
-using Ecologylab.BigSemantics.Collecting;
-using Ecologylab.BigSemantics.MetadataNS;
-using Ecologylab.BigSemantics.MetaMetadataNS;
+using System.Windows.Threading;
 using HtmlAgilityPack;
 using Prism.Commands;
 using Prism.Mvvm;
-using Simpl.Serialization;
 
 namespace TelegramBotPlatform.Test.WpfTestUtility.ViewModels
 {
@@ -36,7 +33,7 @@ namespace TelegramBotPlatform.Test.WpfTestUtility.ViewModels
 			
 			SearchResults = new ObservableCollection<string>();
 			Metas = new ObservableCollection<Meta>();
-			SemanticsSessionScope infoCollector ;
+            _dispatcher = Dispatcher.CurrentDispatcher;
 		}
 
 		public ICommand SearchCommand
@@ -46,34 +43,53 @@ namespace TelegramBotPlatform.Test.WpfTestUtility.ViewModels
 
 		public ObservableCollection<string> SearchResults { get; set; }
 		public ObservableCollection<Meta> Metas { get; set; }
-
+	    private Dispatcher _dispatcher;
 		private void OnExecuteSearchCommand()
 		{
-			var result = new HtmlWeb().Load(string.Format(Url, QueryString));
-			//var nodes = result.DocumentNode.SelectNodes("//html//body//div[@class='g']").Select(r => r.InnerHtml).Take(10);
-			//SearchResults.Clear();
-			//foreach (var node in nodes)
-			//{
-			//	SearchResults.Add(node);
-			//}
+            SearchResults.Clear();
+            Metas.Clear();
+            Task.Factory.StartNew(() =>
+		    {
+		        var result = new HtmlWeb().Load(string.Format(Url, QueryString));
+		        //var nodes = result.DocumentNode.SelectNodes("//html//body//div[@class='g']").Select(r => r.InnerHtml).Take(10);
+		        //SearchResults.Clear();
+		        //foreach (var node in nodes)
+		        //{
+		        //	SearchResults.Add(node);
+		        //}
 
-			// extract links
-			SearchResults.Clear();
-			var searchResultCount = 0;
-			foreach (var link in result.DocumentNode.SelectNodes("//a[@href]"))
-			{
-				var hrefValue = link.GetAttributeValue("href", string.Empty);
-				if (hrefValue.ToUpper().Contains("GOOGLE") || !hrefValue.Contains("/url?q=") ||
-				    !hrefValue.ToUpper().Contains("HTTP://")) continue;
-				var index = hrefValue.IndexOf("&", StringComparison.Ordinal);
-				if (index <= 0) continue;
-				hrefValue = hrefValue.Substring(0, index);
-				var searchResultUrl = hrefValue.Replace("/url?q=", "");
-				if (searchResultCount == 10) continue;
-				searchResultCount++;
-				SearchResults.Add(searchResultUrl);
-				//Metas.Add(LoadMeta(searchResultUrl));
-			}
+		        // extract links
+		        
+		        var searchResultCount = 0;
+		        foreach (var link in result.DocumentNode.SelectNodes("//a[@href]"))
+		        {
+		            var hrefValue = link.GetAttributeValue("href", string.Empty);
+		            if (hrefValue.ToUpper().Contains("GOOGLE") || !hrefValue.Contains("/url?q=") ||
+		                !hrefValue.ToUpper().Contains("HTTP://")) continue;
+		            var index = hrefValue.IndexOf("&", StringComparison.Ordinal);
+		            if (index <= 0) continue;
+		            hrefValue = hrefValue.Substring(0, index);
+		            var searchResultUrl = hrefValue.Replace("/url?q=", "");
+		            if (searchResultCount == 20) continue;
+		            searchResultCount++;
+		           _dispatcher.Invoke(() =>
+		            {
+		                SearchResults.Add(searchResultUrl);
+		            }, DispatcherPriority.Normal);
+		        }
+		        
+		        Parallel.ForEach(SearchResults, (c) =>
+		        {
+		            var meta = LoadMeta(c);
+		            HtmlTool.FetchOg(c);
+
+                    _dispatcher.Invoke(() =>
+		            {
+                        Metas.Add(meta);
+                        
+                    });
+		        });
+		    });
 		}
 
 		//private void GetMetaTagsDetails(string strUrl)
@@ -105,20 +121,21 @@ namespace TelegramBotPlatform.Test.WpfTestUtility.ViewModels
 		private Meta LoadMeta(string url)
 		{
 			var result = new HtmlWeb().Load(url);
+           
 			var doc = result.DocumentNode;
-			String title = (from x in doc.Descendants()
+			var title = (from x in doc.Descendants()
 							where x.Name.ToLower() == "title"
 							select x.InnerText).FirstOrDefault();
 
-			String desc = (from x in doc.Descendants()
+			var desc = (from x in doc.Descendants()
 						   where x.Name.ToLower() == "meta"
 						   && x.Attributes["name"] != null
 						   && x.Attributes["name"].Value.ToLower() == "description"
 						   select x.Attributes["content"].Value).FirstOrDefault();
 
-			List<String> imgs = (from x in doc.Descendants()
+			var imgs = (from x in doc.Descendants()
 								 where x.Name.ToLower() == "img"
-								 select x.Attributes["src"]?.Value).ToList<String>();
+								 select x.Attributes["src"]?.Value).ToList();
 			return new Meta() {Description = desc, Title = title, Images = imgs};
 		}
 	}
