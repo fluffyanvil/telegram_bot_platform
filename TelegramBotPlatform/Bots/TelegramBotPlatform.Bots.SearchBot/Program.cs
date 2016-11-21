@@ -1,15 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Google.Apis.Customsearch.v1;
-using Google.Apis.Services;
 using Telegram.Bot;
 using Telegram.Bot.Args;
-using Telegram.Bot.Types.InlineQueryResults;
-using Telegram.Bot.Types.InputMessageContents;
-using TelegramBotPlatform.Bots.SearchBot.GoogleSearch;
+using TelegramBotPlatform.Core.BingWebSearchApi;
 
 namespace TelegramBotPlatform.Bots.SearchBot
 {
@@ -17,23 +10,20 @@ namespace TelegramBotPlatform.Bots.SearchBot
 	{
 		private static ITelegramBotClient _bot;
 		private static string _telegramBotAccessToken = "236618531:AAEm_ErVvUIcftX_av7jSC19iNmKJFqJOgo";
-		private static IGoogleSearchEngine _googleSearchEngine;
+		private static string _bingWebsearchApiSubscriptionKey = "6508d56f058048219b8a35a68ff8596b";
+		public static IBingWebSearchApi BingWebSearchApi;
 		static void Main(string[] args)
 		{
-			_googleSearchEngine = new GoogleSiteSearch();
-			
+			BingWebSearchApi = new BingWebSearchApi(_bingWebsearchApiSubscriptionKey);
 			_bot = new TelegramBotClient(_telegramBotAccessToken);
 			Console.WriteLine(_bot.GetMeAsync().Result.FirstName);
-
 			_bot.StartReceiving();
-
 			_bot.OnMessage += BotOnOnMessage;
 			_bot.OnInlineQuery += BotOnOnInlineQuery;
 			_bot.OnInlineResultChosen += BotOnOnInlineResultChosen;
-			
-			var command = Console.ReadLine();
-		    _bot.SendTextMessageAsync("@gcardrobot", "kirill");
-		    Console.ReadLine();
+
+			Console.WriteLine("Press Enter to exit...");
+			Console.ReadLine();
 		}
 
 		private static void BotOnOnInlineResultChosen(object sender, ChosenInlineResultEventArgs chosenInlineResultEventArgs)
@@ -43,20 +33,24 @@ namespace TelegramBotPlatform.Bots.SearchBot
 
 		private static async void BotOnOnInlineQuery(object sender, InlineQueryEventArgs inlineQueryEventArgs)
 		{
-			Console.WriteLine(inlineQueryEventArgs.InlineQuery.Query);
-			var results = _googleSearchEngine.Search(inlineQueryEventArgs.InlineQuery.Query);
-			if (results != null && results.Any())
+			Console.WriteLine($"{DateTime.Now} | {inlineQueryEventArgs.InlineQuery.From.Username}: {inlineQueryEventArgs.InlineQuery.Query}");
+			var result = await BingWebSearchApi.SearchAsync(inlineQueryEventArgs.InlineQuery.Query);
+			if (result == null) return;
+			var inlineQuesryResults = BingWebSearchResultToInlineQueryConverter.Convert(result).ToArray();
+			try
 			{
-				var inlineQuesryResults = results.Select(SearchResultToInlineQueryConverter.Convert).Take(10).ToArray();
-				await _bot.AnswerInlineQueryAsync(inlineQueryEventArgs.InlineQuery.Id, inlineQuesryResults, isPersonal:true, cacheTime:300);
+				await _bot.AnswerInlineQueryAsync(inlineQueryEventArgs.InlineQuery.Id, inlineQuesryResults, isPersonal: true, cacheTime: 300);
 			}
-
-
+			catch (Exception ex)
+			{
+				Console.WriteLine($"{DateTime.Now}: {ex}");
+			}
+			
 		}
 
 		private static void BotOnOnMessage(object sender, MessageEventArgs messageEventArgs)
 		{
-			Console.WriteLine($"{DateTime.UtcNow}: Received: {messageEventArgs.Message.Text}, from {messageEventArgs.Message.From.Username}");
+			Console.WriteLine($"{DateTime.UtcNow} | {messageEventArgs.Message.From.Username}: {messageEventArgs.Message.Text}");
 		}
 	}
 }
