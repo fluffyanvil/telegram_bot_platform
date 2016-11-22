@@ -1,6 +1,4 @@
-﻿using System;
-using System.ComponentModel.Design;
-using Newtonsoft.Json;
+﻿using Newtonsoft.Json;
 
 namespace TelegramBotPlatform.Core.BingWebSearchApi.Response
 {

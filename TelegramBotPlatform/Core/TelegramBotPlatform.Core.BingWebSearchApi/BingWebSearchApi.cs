@@ -7,7 +7,6 @@ namespace TelegramBotPlatform.Core.BingWebSearchApi
 {
 	public class BingWebSearchApi : IBingWebSearchApi
 	{
-		private string _subscriptionKey;
 		private string _ocpApimSubscriptionKeyHeader = "Ocp-Apim-Subscription-Key";
 		private readonly HttpClient _httpClient;
 
@@ -16,7 +15,6 @@ namespace TelegramBotPlatform.Core.BingWebSearchApi
 
 		public BingWebSearchApi(string subscriptionKey)
 		{
-			_subscriptionKey = subscriptionKey;
 			_httpClient = new HttpClient();
 			_httpClient.DefaultRequestHeaders.Add(_ocpApimSubscriptionKeyHeader, subscriptionKey);
 			
