@@ -4,7 +4,7 @@ using Telegram.Bot;
 using Telegram.Bot.Args;
 using TelegramBotPlatform.Core.BingWebSearchApi;
 
-namespace TelegramBotPlatform.Bots.SearchBot
+namespace TelegramBotPlatform.Core.SearchBot
 {
     public class SearchBot : ISearchBot
     {
@@ -12,7 +12,7 @@ namespace TelegramBotPlatform.Bots.SearchBot
         public static IBingWebSearchApi BingWebSearchApi;
         public SearchBot(string telegramBotAccessToken, string bingWebSearchApiSubscriptionKey)
         {
-            BingWebSearchApi = new BingWebSearchApi(bingWebSearchApiSubscriptionKey);
+            BingWebSearchApi = new BingWebSearchApi.BingWebSearchApi(bingWebSearchApiSubscriptionKey);
             _bot = new TelegramBotClient(telegramBotAccessToken);
             Console.WriteLine(_bot.GetMeAsync().Result.FirstName);
             _bot.OnMessage += BotOnOnMessage;

@@ -5,7 +5,7 @@ using Telegram.Bot.Types.InlineQueryResults;
 using Telegram.Bot.Types.InputMessageContents;
 using TelegramBotPlatform.Core.BingWebSearchApi.Response;
 
-namespace TelegramBotPlatform.Bots.SearchBot
+namespace TelegramBotPlatform.Core.SearchBot
 {
 	public class BingWebSearchResultToInlineQueryConverter
 	{

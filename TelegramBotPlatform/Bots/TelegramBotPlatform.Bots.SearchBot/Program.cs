@@ -1,8 +1,5 @@
 ﻿using System;
-using System.Linq;
-using Telegram.Bot;
-using Telegram.Bot.Args;
-using TelegramBotPlatform.Core.BingWebSearchApi;
+using TelegramBotPlatform.Core.SearchBot;
 
 namespace TelegramBotPlatform.Bots.SearchBot
 {
@@ -13,7 +10,7 @@ namespace TelegramBotPlatform.Bots.SearchBot
 	    private static ISearchBot _bot;
 		static void Main(string[] args)
 		{
-            _bot = new SearchBot(TelegramBotAccessToken, BingWebsearchApiSubscriptionKey);
+            _bot = new Core.SearchBot.SearchBot(TelegramBotAccessToken, BingWebsearchApiSubscriptionKey);
             _bot.Start();
             Console.WriteLine("Press Enter to exit...");
 			Console.ReadLine();

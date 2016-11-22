@@ -23,6 +23,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TelegramBotPlatform.Test.Wp
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TelegramBotPlatform.Core.BingWebSearchApi", "Core\TelegramBotPlatform.Core.BingWebSearchApi\TelegramBotPlatform.Core.BingWebSearchApi.csproj", "{BD567408-049B-496C-9E26-DA7208C5C232}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TelegramBotPlatform.Core.SearchBot", "Core\TelegramBotPlatform.Core.SearchBot\TelegramBotPlatform.Core.SearchBot.csproj", "{360DB924-44B2-4C01-961A-72F63CE9564C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -57,6 +59,10 @@ Global
 		{BD567408-049B-496C-9E26-DA7208C5C232}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BD567408-049B-496C-9E26-DA7208C5C232}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BD567408-049B-496C-9E26-DA7208C5C232}.Release|Any CPU.Build.0 = Release|Any CPU
+		{360DB924-44B2-4C01-961A-72F63CE9564C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{360DB924-44B2-4C01-961A-72F63CE9564C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{360DB924-44B2-4C01-961A-72F63CE9564C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{360DB924-44B2-4C01-961A-72F63CE9564C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -67,5 +73,6 @@ Global
 		{374DB0B4-4241-4817-82FD-D34A0CCF83CF} = {D1376112-B9AD-47E1-842E-3ED3CCAE1EEA}
 		{CE18B40E-4641-4F96-9CB1-9BDB1D6F689C} = {A38D05CC-A464-4BD6-A7AF-E65A2DED9FEF}
 		{BD567408-049B-496C-9E26-DA7208C5C232} = {311CC5E8-8522-4C2E-B35D-F0EA53BAC401}
+		{360DB924-44B2-4C01-961A-72F63CE9564C} = {311CC5E8-8522-4C2E-B35D-F0EA53BAC401}
 	EndGlobalSection
 EndGlobal

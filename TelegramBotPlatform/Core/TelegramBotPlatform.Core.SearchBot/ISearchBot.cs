@@ -1,4 +1,4 @@
-﻿namespace TelegramBotPlatform.Bots.SearchBot
+﻿namespace TelegramBotPlatform.Core.SearchBot
 {
     public interface ISearchBot
     {

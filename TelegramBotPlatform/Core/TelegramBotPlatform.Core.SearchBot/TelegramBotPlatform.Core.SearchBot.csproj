@@ -4,17 +4,15 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{374DB0B4-4241-4817-82FD-D34A0CCF83CF}</ProjectGuid>
-    <OutputType>Exe</OutputType>
+    <ProjectGuid>{360DB924-44B2-4C01-961A-72F63CE9564C}</ProjectGuid>
+    <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>TelegramBotPlatform.Bots.SearchBot</RootNamespace>
-    <AssemblyName>TelegramBotPlatform.Bots.SearchBot</AssemblyName>
+    <RootNamespace>TelegramBotPlatform.Core.SearchBot</RootNamespace>
+    <AssemblyName>TelegramBotPlatform.Core.SearchBot</AssemblyName>
     <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -24,7 +22,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -56,21 +53,19 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Program.cs" />
+    <Compile Include="BingWebSearchResultToInlineQueryConverter.cs" />
+    <Compile Include="ISearchBot.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SearchBot.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
+    <None Include="app.config" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\Core\TelegramBotPlatform.Core.BingWebSearchApi\TelegramBotPlatform.Core.BingWebSearchApi.csproj">
+    <ProjectReference Include="..\TelegramBotPlatform.Core.BingWebSearchApi\TelegramBotPlatform.Core.BingWebSearchApi.csproj">
       <Project>{bd567408-049b-496c-9e26-da7208c5c232}</Project>
       <Name>TelegramBotPlatform.Core.BingWebSearchApi</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\Core\TelegramBotPlatform.Core.SearchBot\TelegramBotPlatform.Core.SearchBot.csproj">
-      <Project>{360db924-44b2-4c01-961a-72f63ce9564c}</Project>
-      <Name>TelegramBotPlatform.Core.SearchBot</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
