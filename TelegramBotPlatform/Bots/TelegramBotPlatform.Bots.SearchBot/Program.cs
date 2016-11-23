@@ -12,7 +12,7 @@ namespace TelegramBotPlatform.Bots.SearchBot
 	    private static ISearchBot _bot;
 		static void Main(string[] args)
 		{
-            _bot = new Core.SearchBot.SearchBot(TelegramBotAccessToken, GoogleApiKey, GoogleCustomSearchEngineCx);
+            _bot = new Core.SearchBot.SearchBot(TelegramBotAccessToken, BingWebsearchApiSubscriptionKey, GoogleApiKey, GoogleCustomSearchEngineCx);
             _bot.Start();
             Console.WriteLine("Press Enter to exit...");
 			Console.ReadLine();

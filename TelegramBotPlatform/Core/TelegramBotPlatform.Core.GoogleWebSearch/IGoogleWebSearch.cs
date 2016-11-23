@@ -7,6 +7,6 @@ namespace TelegramBotPlatform.Core.GoogleWebSearch
 {
     public interface IGoogleWebSearch
     {
-        Task<IWebSearchResult> Search(string query, bool searchImages = false);
+        Task<IWebSearchResult> SearchAsync(string query, bool searchImages = false);
     }
 }

@@ -11,8 +11,9 @@ namespace TelegramBotPlatform.Core.SearchBot
     public class SearchBot : ISearchBot
     {
         private static ITelegramBotClient _bot;
-        public static IBingWebSearchApi BingWebSearchApi;
-        public static IGoogleWebSearch GoogleWebSearch;
+        private static IBingWebSearchApi _bingWebSearchApi;
+        private static IGoogleWebSearch _googleWebSearch;
+        private static IWebSearchAggregator _webSearchAggregator;
         private SearchBot(string telegramBotAccessToken)
         {
             _bot = new TelegramBotClient(telegramBotAccessToken);
@@ -22,15 +23,13 @@ namespace TelegramBotPlatform.Core.SearchBot
             _bot.OnInlineResultChosen += BotOnOnInlineResultChosen;
         }
 
-        public SearchBot(string telegramBotAccessToken, string bingWebSearchApiSubscriptionKey) : this(telegramBotAccessToken)
+        public SearchBot(string telegramBotAccessToken, string bingWebSearchApiSubscriptionKey, string googleApiKey, string customSearchCx) : this(telegramBotAccessToken)
         {
-            BingWebSearchApi = new BingWebSearchApi.BingWebSearchApi(bingWebSearchApiSubscriptionKey);
+            _bingWebSearchApi = new BingWebSearchApi.BingWebSearchApi(bingWebSearchApiSubscriptionKey);
+            _googleWebSearch = new GoogleWebSearch.GoogleWebSearch(googleApiKey, customSearchCx);
+            _webSearchAggregator = new WebSearchAggregator(_googleWebSearch, _bingWebSearchApi);
         }
 
-        public SearchBot(string telegramBotAccessToken, string googleApiKey, string customSearchCx) : this(telegramBotAccessToken)
-        {
-            GoogleWebSearch = new GoogleWebSearch.GoogleWebSearch(googleApiKey, customSearchCx);
-        }
         public void Start()
         {
             _bot.StartReceiving();
@@ -50,12 +49,11 @@ namespace TelegramBotPlatform.Core.SearchBot
         {
             Console.WriteLine($"{DateTime.Now} | {inlineQueryEventArgs.InlineQuery.From.Username}: {inlineQueryEventArgs.InlineQuery.Query}");
             var queryString = inlineQueryEventArgs.InlineQuery.Query;
-            var result = BingWebSearchApi != null ? await BingWebSearchApi.SearchAsync(queryString) : await GoogleWebSearch.Search(queryString);
+            var result = await _webSearchAggregator.Search(queryString);
             if (result == null) return;
-            var inlineQuesryResults = WebSearchResultToInlineQueryResultConverter.Convert(result).ToArray();
             try
             {
-                await _bot.AnswerInlineQueryAsync(inlineQueryEventArgs.InlineQuery.Id, inlineQuesryResults, isPersonal: true, cacheTime: 300);            }
+                await _bot.AnswerInlineQueryAsync(inlineQueryEventArgs.InlineQuery.Id, result.ToArray(), isPersonal: true, cacheTime: 300);            }
             catch (Exception ex)
             {
                 Console.WriteLine($"{DateTime.Now}: {ex}");

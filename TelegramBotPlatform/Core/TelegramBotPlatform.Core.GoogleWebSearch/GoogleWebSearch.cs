@@ -22,7 +22,7 @@ namespace TelegramBotPlatform.Core.GoogleWebSearch
             });
         }
 
-        public async Task<IWebSearchResult> Search(string query, bool searchImages)
+        public async Task<IWebSearchResult> SearchAsync(string query, bool searchImages)
         {
             if (string.IsNullOrEmpty(query)) return new GoogleWebSearchResult {Results = new List<Result>()};
             var listRequest = _customsearchService.Cse.List(query);

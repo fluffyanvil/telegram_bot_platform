@@ -81,8 +81,10 @@
     <Compile Include="Converters\GoogleWebSearchResultToInlineQueryConverter.cs" />
     <Compile Include="Converters\WebSearchResultToInlineQueryResultConverter.cs" />
     <Compile Include="ISearchBot.cs" />
+    <Compile Include="IWebSearchAggregator.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SearchBot.cs" />
+    <Compile Include="WebSearchAggregator.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
