@@ -1,9 +1,11 @@
 ﻿using Newtonsoft.Json;
+using TelegramBotPlatform.Core.Common.Enums;
+using TelegramBotPlatform.Core.Common.Interfaces;
 
 namespace TelegramBotPlatform.Core.BingWebSearchApi.Response
 {
     [JsonObject]
-    public class BingWebSearchResult
+    public class SearchResult
     {
         [JsonProperty("queryContext")]
         public QueryContext QueryContext { get; set; }

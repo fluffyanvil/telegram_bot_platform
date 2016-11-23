@@ -64,10 +64,6 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\Core\TelegramBotPlatform.Core.BingWebSearchApi\TelegramBotPlatform.Core.BingWebSearchApi.csproj">
-      <Project>{bd567408-049b-496c-9e26-da7208c5c232}</Project>
-      <Name>TelegramBotPlatform.Core.BingWebSearchApi</Name>
-    </ProjectReference>
     <ProjectReference Include="..\..\Core\TelegramBotPlatform.Core.SearchBot\TelegramBotPlatform.Core.SearchBot.csproj">
       <Project>{360db924-44b2-4c01-961a-72f63ce9564c}</Project>
       <Name>TelegramBotPlatform.Core.SearchBot</Name>

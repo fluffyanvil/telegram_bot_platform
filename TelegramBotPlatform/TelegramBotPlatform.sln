@@ -25,6 +25,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TelegramBotPlatform.Core.Bi
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TelegramBotPlatform.Core.SearchBot", "Core\TelegramBotPlatform.Core.SearchBot\TelegramBotPlatform.Core.SearchBot.csproj", "{360DB924-44B2-4C01-961A-72F63CE9564C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TelegramBotPlatform.Core.GoogleWebSearch", "Core\TelegramBotPlatform.Core.GoogleWebSearch\TelegramBotPlatform.Core.GoogleWebSearch.csproj", "{1EE19D00-EEAC-4928-91F4-9F245AE9FBF2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TelegramBotPlatform.Core.Common", "Core\TelegramBotPlatform.Core.Common\TelegramBotPlatform.Core.Common.csproj", "{54DAF212-AC74-46BF-AC3D-DF21C260347E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -63,6 +67,14 @@ Global
 		{360DB924-44B2-4C01-961A-72F63CE9564C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{360DB924-44B2-4C01-961A-72F63CE9564C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{360DB924-44B2-4C01-961A-72F63CE9564C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1EE19D00-EEAC-4928-91F4-9F245AE9FBF2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1EE19D00-EEAC-4928-91F4-9F245AE9FBF2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1EE19D00-EEAC-4928-91F4-9F245AE9FBF2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1EE19D00-EEAC-4928-91F4-9F245AE9FBF2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{54DAF212-AC74-46BF-AC3D-DF21C260347E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{54DAF212-AC74-46BF-AC3D-DF21C260347E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{54DAF212-AC74-46BF-AC3D-DF21C260347E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{54DAF212-AC74-46BF-AC3D-DF21C260347E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -74,5 +86,7 @@ Global
 		{CE18B40E-4641-4F96-9CB1-9BDB1D6F689C} = {A38D05CC-A464-4BD6-A7AF-E65A2DED9FEF}
 		{BD567408-049B-496C-9E26-DA7208C5C232} = {311CC5E8-8522-4C2E-B35D-F0EA53BAC401}
 		{360DB924-44B2-4C01-961A-72F63CE9564C} = {311CC5E8-8522-4C2E-B35D-F0EA53BAC401}
+		{1EE19D00-EEAC-4928-91F4-9F245AE9FBF2} = {311CC5E8-8522-4C2E-B35D-F0EA53BAC401}
+		{54DAF212-AC74-46BF-AC3D-DF21C260347E} = {311CC5E8-8522-4C2E-B35D-F0EA53BAC401}
 	EndGlobalSection
 EndGlobal

@@ -2,6 +2,7 @@
 using System.Threading.Tasks;
 using Newtonsoft.Json;
 using TelegramBotPlatform.Core.BingWebSearchApi.Response;
+using TelegramBotPlatform.Core.Common.Interfaces;
 
 namespace TelegramBotPlatform.Core.BingWebSearchApi
 {
@@ -20,17 +21,16 @@ namespace TelegramBotPlatform.Core.BingWebSearchApi
 			
 		}
 
-		public async Task<BingWebSearchResult> SearchAsync(string query, int count = 10, int offset = 0, string market = "en-US", string safesearch = "Off")
+		public async Task<IWebSearchResult> SearchAsync(string query, int count = 10, int offset = 0, string market = "en-US", string safesearch = "Off")
 		{
-			if (string.IsNullOrEmpty(query)) return new BingWebSearchResult();
+			if (string.IsNullOrEmpty(query)) return new BingWebSearchApiResult();
 			var url = string.Format(_queryPattern, query, count, offset, market, safesearch);
 			var response = await _httpClient.GetStringAsync(url);
-			var result = new BingWebSearchResult();
-			if (!string.IsNullOrEmpty(response))
-			{
-				result = JsonConvert.DeserializeObject<BingWebSearchResult>(response);
-			}
-			return result;
+			var result = new BingWebSearchApiResult();
+		    if (string.IsNullOrEmpty(response)) return result;
+		    var searchResult = JsonConvert.DeserializeObject<SearchResult>(response);
+		    result.SearchResult = searchResult;
+		    return result;
 		}
 	}
 }

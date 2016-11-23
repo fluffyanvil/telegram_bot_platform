@@ -4,15 +4,17 @@ using System.Linq;
 using Telegram.Bot.Types.InlineQueryResults;
 using Telegram.Bot.Types.InputMessageContents;
 using TelegramBotPlatform.Core.BingWebSearchApi.Response;
+using TelegramBotPlatform.Core.Common.Interfaces;
 
-namespace TelegramBotPlatform.Core.SearchBot
+namespace TelegramBotPlatform.Core.SearchBot.Converters
 {
 	public class BingWebSearchResultToInlineQueryConverter
 	{
-		public static IEnumerable<InlineQueryResult> Convert(BingWebSearchResult bingWebSearchResult)
+		public static IEnumerable<InlineQueryResult> Convert(IWebSearchResult searchResult)
 		{
 			var result = new List<InlineQueryResult>();
-			result.AddRange(ConvertWebPagesToInlineQueryResultArticle(bingWebSearchResult.WebPages));
+		    var bingWebSearchResult = (SearchResult)searchResult.Result;
+            result.AddRange(ConvertWebPagesToInlineQueryResultArticle(bingWebSearchResult.WebPages));
 			result.AddRange(ConvertImagesToInlineQueryResultPhoto(bingWebSearchResult.Images));
 			result.AddRange(ConvertVideosToInlineQueryResultVideo(bingWebSearchResult.Videos));
 			return result;
@@ -36,19 +38,17 @@ namespace TelegramBotPlatform.Core.SearchBot
 			return result.ToArray();
 		}
 
-		private static IEnumerable<InlineQueryResultPhoto> ConvertImagesToInlineQueryResultPhoto(Images images)
+		private static IEnumerable<InlineQueryResultArticle> ConvertImagesToInlineQueryResultPhoto(Images images)
 		{
-			if (images == null) return new List<InlineQueryResultPhoto>();
+			if (images == null) return new List<InlineQueryResultArticle>();
 			var imagesValues = images.Value;
-			var result = imagesValues.Select(i => new InlineQueryResultPhoto()
+			var result = imagesValues.Select(i => new InlineQueryResultArticle()
 			{
 				Id = Guid.NewGuid().ToString(),
 				Title = i.Name,
 				Url = i.ContentUrl,
 				Description = i.Name,
-				Caption = i.Name,
 				ThumbUrl = i.ThumbnailUrl,
-				
 				InputMessageContent = new InputTextMessageContent
 				{
 					MessageText = i.ContentUrl
