@@ -41,6 +41,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Enums\SearchEngine.cs" />
+    <Compile Include="Interfaces\IWebSearchEngine.cs" />
     <Compile Include="Interfaces\IWebSearchResult.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

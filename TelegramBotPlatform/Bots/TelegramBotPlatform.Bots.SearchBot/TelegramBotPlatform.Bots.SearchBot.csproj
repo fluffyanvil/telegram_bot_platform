@@ -33,9 +33,8 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Newtonsoft.Json.9.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
-      <Private>True</Private>
+    <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Newtonsoft.Json.10.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -58,12 +57,29 @@
   <ItemGroup>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\Core\TelegramBotPlatform.Core.BingWebSearchApi\TelegramBotPlatform.Core.BingWebSearchApi.csproj">
+      <Project>{BD567408-049B-496C-9E26-DA7208C5C232}</Project>
+      <Name>TelegramBotPlatform.Core.BingWebSearchApi</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Core\TelegramBotPlatform.Core.Common\TelegramBotPlatform.Core.Common.csproj">
+      <Project>{54DAF212-AC74-46BF-AC3D-DF21C260347E}</Project>
+      <Name>TelegramBotPlatform.Core.Common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\Core\TelegramBotPlatform.Core.SearchBot\TelegramBotPlatform.Core.SearchBot.csproj">
       <Project>{360db924-44b2-4c01-961a-72f63ce9564c}</Project>
       <Name>TelegramBotPlatform.Core.SearchBot</Name>

@@ -2,17 +2,13 @@
 using System.Linq;
 using Telegram.Bot;
 using Telegram.Bot.Args;
-using TelegramBotPlatform.Core.BingWebSearchApi;
-using TelegramBotPlatform.Core.GoogleWebSearch;
-using TelegramBotPlatform.Core.SearchBot.Converters;
+using TelegramBotPlatform.Core.Common.Interfaces;
 
 namespace TelegramBotPlatform.Core.SearchBot
 {
     public class SearchBot : ISearchBot
     {
         private static ITelegramBotClient _bot;
-        private static IBingWebSearchApi _bingWebSearchApi;
-        private static IGoogleWebSearch _googleWebSearch;
         private static IWebSearchAggregator _webSearchAggregator;
         private SearchBot(string telegramBotAccessToken)
         {
@@ -23,11 +19,9 @@ namespace TelegramBotPlatform.Core.SearchBot
             _bot.OnInlineResultChosen += BotOnOnInlineResultChosen;
         }
 
-        public SearchBot(string telegramBotAccessToken, string bingWebSearchApiSubscriptionKey, string googleApiKey, string customSearchCx) : this(telegramBotAccessToken)
+        public SearchBot(string telegramBotAccessToken, params IWebSearchEngine[] engines) : this(telegramBotAccessToken)
         {
-            _bingWebSearchApi = new BingWebSearchApi.BingWebSearchApi(bingWebSearchApiSubscriptionKey);
-            _googleWebSearch = new GoogleWebSearch.GoogleWebSearch(googleApiKey, customSearchCx);
-            _webSearchAggregator = new WebSearchAggregator(_googleWebSearch, _bingWebSearchApi);
+            _webSearchAggregator = new WebSearchAggregator(engines);
         }
 
         public void Start()

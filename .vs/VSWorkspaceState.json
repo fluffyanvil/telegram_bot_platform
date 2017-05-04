@@ -1,0 +1,17 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\TelegramBotPlatform",
+    "\\TelegramBotPlatform\\Bots",
+    "\\TelegramBotPlatform\\Bots\\TelegramBotPlatform.Bots.SearchBot",
+    "\\TelegramBotPlatform\\Core",
+    "\\TelegramBotPlatform\\Core\\TelegramBotPlatform.Core.BingWebSearchApi",
+    "\\TelegramBotPlatform\\Core\\TelegramBotPlatform.Core.Common",
+    "\\TelegramBotPlatform\\Core\\TelegramBotPlatform.Core.Common\\Interfaces",
+    "\\TelegramBotPlatform\\Core\\TelegramBotPlatform.Core.GoogleWebSearch",
+    "\\TelegramBotPlatform\\Core\\TelegramBotPlatform.Core.SearchBot",
+    "\\TelegramBotPlatform\\Core\\TelegramBotPlatform.Core.SearchBot\\Converters"
+  ],
+  "SelectedNode": "\\TelegramBotPlatform\\Core\\TelegramBotPlatform.Core.SearchBot\\WebSearchAggregator.cs",
+  "PreviewInSolutionExplorer": false
+}

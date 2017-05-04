@@ -6,7 +6,7 @@ using TelegramBotPlatform.Core.Common.Interfaces;
 
 namespace TelegramBotPlatform.Core.BingWebSearchApi
 {
-	public class BingWebSearchApi : IBingWebSearchApi
+	public class BingWebSearchApi : IBingWebSearchApi, IWebSearchEngine
 	{
 		private string _ocpApimSubscriptionKeyHeader = "Ocp-Apim-Subscription-Key";
 		private readonly HttpClient _httpClient;
@@ -32,5 +32,10 @@ namespace TelegramBotPlatform.Core.BingWebSearchApi
 		    result.SearchResult = searchResult;
 		    return result;
 		}
+
+	    Task<IWebSearchResult> IWebSearchEngine.SearchAsync(string query)
+	    {
+	        return SearchAsync(query);
+        }
 	}
 }
